@@ -13,21 +13,16 @@ export default function SitesPage() {
     <div className="min-h-screen">
       <Header />
       <div className="flex">
-        <aside className="hidden w-64 shrink-0 border-r md:block">
+        <aside className="hidden w-64 shrink-0   md:block">
           <Sidebar />
         </aside>
         <main className="flex-1 p-8">
-          <div className="flex items-center justify-between mb-6">
-            <h1 className="text-3xl font-bold">Sites</h1>
-            <Button>
-              <Plus className="mr-2 h-4 w-4" />
-              New site
-            </Button>
-          </div>
+
           <div className="grid gap-4">
-            <Card>
+            <Card style={{ border: 'none' }}>
               <CardHeader>
                 <div className="flex items-center justify-between">
+
                   <div>
                     <CardTitle className="text-xl mb-2">Manage your sites</CardTitle>
                     <p className="text-sm text-muted-foreground">
@@ -38,6 +33,13 @@ export default function SitesPage() {
                       </Button>
                     </p>
                   </div>
+                  <img src="/icons/svg/site_management.svg" alt="" />
+                </div>
+                <div className="flex items-center   mb-6">
+                  <Button>
+                    <Plus className="mr-2 h-4 w-4" />
+                    New site
+                  </Button>
                 </div>
               </CardHeader>
               <CardContent>
@@ -45,7 +47,7 @@ export default function SitesPage() {
                   <Search className="h-4 w-4 text-muted-foreground" />
                   <Input placeholder="Search" className="max-w-sm" />
                 </div>
-                
+
                 <div className="flex gap-2 mb-4">
                   <Badge variant="outline" className="rounded-full">Ready</Badge>
                   <Badge variant="outline" className="rounded-full">Getting ready</Badge>
@@ -53,7 +55,7 @@ export default function SitesPage() {
                   <Badge variant="outline" className="rounded-full">Needs attention</Badge>
                 </div>
 
-                <div className="rounded-lg border">
+                <div className="  border">
                   <div className="grid grid-cols-4 gap-4 p-4 border-b bg-muted/50">
                     <div className="flex items-center gap-1">
                       Site URL
@@ -64,7 +66,7 @@ export default function SitesPage() {
                     <div>Last updated</div>
                     <div />
                   </div>
-                  
+
                   {[
                     { url: "blogingco.com", status: "Ready", details: "-", lastUpdated: "7 Oct 2022" },
                     { url: "lebely.com", status: "Ready", details: "-", lastUpdated: "17 Mar 2025" },
@@ -87,7 +89,7 @@ export default function SitesPage() {
                     </div>
                   ))}
                 </div>
-                
+
                 <div className="flex items-center justify-between mt-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
                     Show rows
