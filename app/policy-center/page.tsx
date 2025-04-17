@@ -16,19 +16,11 @@ export default function PolicyCenterPage() {
         </aside>
         <main className="flex-1 p-8">
           <div className="space-y-6">
-        
-
             <Card style={{border:'none'}}>
               <CardContent className="pt-6">
                 <div className="flex flex-col items-center justify-center text-center max-w-2xl mx-auto py-12">
                   <div className="mb-8">
                     <div className="relative w-[300px] h-[200px]">
-                      {/* <div className="absolute top-0 right-0">
-                        <Sun className="h-12 w-12 text-yellow-400" />
-                      </div>
-                      <div className="absolute bottom-0 right-0">
-                        <ThumbsUp className="h-10 w-10 text-blue-500" />
-                      </div> */}
                       <img 
                         src="/icons/svg/clean_account_image.svg"
                         alt="Illustration"
