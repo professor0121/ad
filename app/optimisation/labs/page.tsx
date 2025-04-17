@@ -34,12 +34,12 @@ export default function LabsPage() {
   ])
 
   const toggleFeatureStatus = (id: string) => {
-    setLabFeatures(prev => prev.map(feature => 
-      feature.id === id 
-        ? { 
-            ...feature, 
-            status: feature.status === "enabled" ? "available" : "enabled" 
-          }
+    setLabFeatures(prev => prev.map(feature =>
+      feature.id === id
+        ? {
+          ...feature,
+          status: feature.status === "enabled" ? "available" : "enabled"
+        }
         : feature
     ))
   }
@@ -53,137 +53,57 @@ export default function LabsPage() {
         </aside>
         <main className="flex-1 p-8">
           <div className="space-y-8">
-            <div>
-              <h1 className="text-2xl font-semibold text-center mb-2">
-                Try out AdSense Labs
-              </h1>
-              <p className="text-muted-foreground text-center mb-4">
-                Play around with exciting new features before they become widely available. Labs can be
-                anything from cutting-edge formats to experimental features. Simply switch them on or off,
-                whenever you like. We'd love to hear what you think.
-              </p>
-              <div className="flex justify-center">
-                <Button variant="link" className="text-blue-600">
-                  Learn more about how to try out an AdSense Lab
-                  <ExternalLink className="ml-2 h-4 w-4" />
-                </Button>
+            <div className="flex flex-wrap justify-between md:w-[80%] w-full">
+              <div className="flex flex-wrap flex-col w-full md:max-w-[60%]">
+                <h1 className="text-2xl font-semibold mb-2">
+                  Try out AdSense Labs
+                </h1>
+                <p className="text-muted-foreground mb-4">
+                  Play around with exciting new features before they become widely available. Labs can be
+                  anything from cutting-edge formats to experimental features. Simply switch them on or off,
+                  whenever you like. We'd love to hear what you think.
+                </p>
+                <div className="flex">
+                  <Button variant="link" className="text-blue-600">
+                    Learn more about how to try out an AdSense Lab
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
               </div>
+              <img className="w-[235px] h-[235px]" src="/images/lab-image.png" alt="" />
             </div>
-
-            <div className="space-y-6">
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center gap-2">
-                    <Beaker className="h-6 w-6 text-blue-500" />
-                    <CardTitle>Enabled Labs</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  {labFeatures.filter(feature => feature.status === "enabled").length === 0 ? (
-                    <p className="text-muted-foreground">
-                      Nothing yet! Check below for your available labs.
-                    </p>
-                  ) : (
-                    <div className="space-y-4">
-                      {labFeatures
-                        .filter(feature => feature.status === "enabled")
-                        .map(feature => (
-                          <div key={feature.id} className="flex items-center justify-between p-4 border rounded-lg">
-                            <div>
-                              <div className="flex items-center gap-2 mb-1">
-                                <h3 className="font-medium">{feature.title}</h3>
-                                {feature.beta && (
-                                  <Badge variant="outline" className="bg-blue-50 text-blue-700">Beta</Badge>
-                                )}
-                              </div>
-                              <p className="text-sm text-muted-foreground">
-                                {feature.description}
-                              </p>
-                            </div>
-                            <Button 
-                              variant="outline"
-                              onClick={() => toggleFeatureStatus(feature.id)}
-                            >
-                              Turn off
-                            </Button>
-                          </div>
-                        ))
-                      }
-                    </div>
-                  )}
-                </CardContent>
+            <div>
+              <div className="space-y-6">
+                <div className="flex flex-col gap-8">
+                  <h3>Enabled Labs</h3>
+                  <p className="text-[12px]">Nothing yet! Check below for your available labs.</p>
+                </div>
+                <div className="flex flex-col gap-8">
+                  <h3>Available Labs</h3>
+                  <p className="text-[12px]">New labs are added frequently so if you don't see any at the moment, check back again soon.</p>
+                </div>
+                <div className="border-b"></div>
+              </div>
+              <div className="flex flex-col gap-4">
+              <Card className="flex gap-8 p-12">
+                <img className="w-[100px] h-[150px]" src="/icons/svg/adfiliates.svg" alt="" />
+                <div className="flex flex-wrap flex-col py-4 gap-4">
+                  <h2>Turn on ad intent links to keep them active</h2>
+                  <p className="text-[13px]">AdSense shopping links are graduating to ad intents for all AdSense users, so this lab will no longer be active.</p>
+                  <p className="text-[13px]"> To continue benefiting from ad intent links, you’ll need to manually turn the feature on in Auto ads for one or all of your sites.</p>
+                    <a href="" className="text-[13px]">Turn on to ad intent to auto ads</a>
+                </div>
               </Card>
-
-              <Card>
-                <CardHeader>
-                  <div className="flex items-center gap-2">
-                    <Flask className="h-6 w-6 text-blue-500" />
-                    <CardTitle>Available Labs</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    {labFeatures
-                      .filter(feature => feature.status === "available")
-                      .map(feature => (
-                        <div key={feature.id} className="flex items-center justify-between p-4 border rounded-lg">
-                          <div>
-                            <div className="flex items-center gap-2 mb-1">
-                              <h3 className="font-medium">{feature.title}</h3>
-                              {feature.beta && (
-                                <Badge variant="outline" className="bg-blue-50 text-blue-700">Beta</Badge>
-                              )}
-                            </div>
-                            <p className="text-sm text-muted-foreground">
-                              {feature.description}
-                            </p>
-                          </div>
-                          <Button 
-                            variant="outline"
-                            onClick={() => toggleFeatureStatus(feature.id)}
-                          >
-                            Try it out
-                          </Button>
-                        </div>
-                      ))
-                    }
-                  </div>
-                </CardContent>
+              <Card className="flex gap-8 p-12">
+                <img className="w-[100px] h-[150px]" src="/icons/svg/adfiliates.svg" alt="" />
+                <div className="flex flex-wrap flex-col py-4 gap-4">
+                  <h2>Turn on ad intent links to keep them active</h2>
+                  <p className="text-[13px]">AdSense shopping links are graduating to ad intents for all AdSense users, so this lab will no longer be active.</p>
+                  <p className="text-[13px]"> To continue benefiting from ad intent links, you’ll need to manually turn the feature on in Auto ads for one or all of your sites.</p>
+                    <a href="" className="text-[13px]">Turn on to ad intent to auto ads</a>
+                </div>
               </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle>Retired Labs</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    {labFeatures
-                      .filter(feature => feature.status === "retired")
-                      .map(feature => (
-                        <div key={feature.id} className="p-4 border rounded-lg bg-muted/50">
-                          <div className="flex items-center gap-2 mb-4">
-                            <div className="w-12 h-12 rounded-lg bg-muted flex items-center justify-center">
-                              <svg viewBox="0 0 24 24" className="w-6 h-6 text-muted-foreground">
-                                <rect width="16" height="20" x="4" y="2" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
-                                <path d="M8 7h8M8 12h8M8 17h8" stroke="currentColor" strokeWidth="2"/>
-                              </svg>
-                            </div>
-                            <div>
-                              <h3 className="font-medium">{feature.title}</h3>
-                              <p className="text-sm text-muted-foreground">
-                                {feature.description}
-                              </p>
-                            </div>
-                          </div>
-                          <Button variant="outline" className="w-full">
-                            Turn on ad intents in Auto ads
-                          </Button>
-                        </div>
-                      ))
-                    }
-                  </div>
-                </CardContent>
-              </Card>
+              </div>
             </div>
           </div>
         </main>

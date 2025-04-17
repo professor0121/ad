@@ -6,7 +6,7 @@ import { Sidebar } from "@/components/dashboard/sidebar"
 import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from "@/components/ui/button"
-import { AlertTriangle, ExternalLink, Settings2, Search, Filter, MoreVertical, Ban, ChevronDown } from "lucide-react"
+import { AlertTriangle, ExternalLink, Settings2, Search, Filter, MoreVertical, Ban, ChevronDown, RefreshCw } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 
 export default function AdReviewCentrePage() {
@@ -44,15 +44,14 @@ export default function AdReviewCentrePage() {
                 </div>
               </div>
             </div>
-            <Button variant="outline" className="gap-2">
-              <Settings2 className="h-4 w-4" />
-              Review settings
-            </Button>
-
             <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
               <div className="flex items-center gap-2">
                 <Checkbox id="select-all" />
                 <label htmlFor="select-all">Select all</label>
+                <Button variant="ghost" size="icon" className="h-8 w-8">
+                  <RefreshCw className="h-4 w-4" />
+                </Button>
+                <label htmlFor="">Refresh</label>
               </div>
               <div className="flex items-center gap-2">
                 Sort by

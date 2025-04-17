@@ -47,8 +47,8 @@ export default function OpportunitiesPage() {
         <aside className="hidden w-64 shrink-0 border-r md:block">
           <Sidebar />
         </aside>
-        <main className="flex-1 p-8">
-          <div className="space-y-6">
+        <main className="flex-1 flex-wrap p-8">
+          <div className="space-y-6 max-w-[37%]">
             <div>
               <h1 className="text-3xl font-bold mb-2">Opportunities</h1>
               <p className="text-muted-foreground">
@@ -65,7 +65,10 @@ export default function OpportunitiesPage() {
                 <Card key={opportunity.id}>
                   <CardContent className="pt-6">
                     <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0">
+                    
+                      <div className="flex-1">
+                        <div className="flex gap-4">
+                        <div className=" ">
                         <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
                           <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
                             <rect width="24" height="24" rx="12" fill="#1565C0"/>
@@ -73,10 +76,11 @@ export default function OpportunitiesPage() {
                           </svg>
                         </div>
                       </div>
-                      <div className="flex-1">
+                      <div className="flex flex-col">
                         <div className="text-sm text-blue-600 mb-1">{opportunity.title}</div>
                         <h2 className="text-xl font-medium mb-4">{opportunity.subtitle}</h2>
-                        
+                        </div>
+                        </div>
                         <div className="mb-4">
                           <div className="text-sm font-medium text-gray-600 mb-2">IMPACT</div>
                           {opportunity.impacts.map((impact, index) => (
@@ -105,7 +109,7 @@ export default function OpportunitiesPage() {
                             Learn more about ad intents
                             <ExternalLink className="ml-2 h-4 w-4" />
                           </Button>
-                          <Button>Turn on for all sites</Button>
+                          <Button style={{background:'#1A73E8'}}>Turn on for all sites</Button>
                         </div>
                       </div>
                     </div>

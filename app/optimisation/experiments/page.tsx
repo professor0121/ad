@@ -7,7 +7,7 @@ import { Sidebar } from "@/components/dashboard/sidebar"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import { Search, Plus, Filter, ChevronDown, ExternalLink } from "lucide-react"
+import { Search, Plus, Filter, ChevronDown, ExternalLink, ChevronRight } from "lucide-react"
 
 interface Experiment {
   name: string;
@@ -70,7 +70,7 @@ export default function ExperimentsPage() {
     }
   ])
 
-  const filteredExperiments = experiments.filter(exp => 
+  const filteredExperiments = experiments.filter(exp =>
     exp.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     exp.inventory.toLowerCase().includes(searchQuery.toLowerCase())
   )
@@ -84,20 +84,23 @@ export default function ExperimentsPage() {
         </aside>
         <main className="flex-1 p-8">
           <div className="space-y-6">
-            <div>
-              <h1 className="text-2xl font-semibold text-center mb-2">
-                Learn more. Earn more
-              </h1>
-              <p className="text-muted-foreground text-center mb-4">
-                Get powerful insights by experimenting with your ads. You can run experiments
-                yourself or use Auto optimise to let Google run experiments for you.
-              </p>
-              <div className="flex items-center justify-center gap-2">
-                <Button variant="link" className="text-blue-600">
-                  Learn more
-                  <ExternalLink className="ml-1 h-4 w-4" />
-                </Button>
+            <div className="flex flex-wrap justify-between w-full">
+              <div className="md:w-[50%] w-full">
+                <h1 className="text-2xl font-semibold   mb-2">
+                  Learn more. Earn more
+                </h1>
+                <p className="text-muted-foreground   mb-4">
+                  Get powerful insights by experimenting with your ads. You can run experiments
+                  yourself or use Auto optimise to let Google run experiments for you.
+                </p>
+                <div className="flex items-center">
+                  <Button style={{ padding: 0 }} variant="link" className="text-blue-600">
+                    Learn more
+                    <ExternalLink className="ml-1 h-4 w-4" />
+                  </Button>
+                </div>
               </div>
+              <img src="/icons/svg/intro.svg" alt="" />
             </div>
 
             <div className="flex items-center justify-between">
@@ -115,8 +118,8 @@ export default function ExperimentsPage() {
               <div className="flex gap-2">
                 <div className="relative flex-1">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <Input 
-                    placeholder="Search by name or inventory" 
+                  <Input
+                    placeholder="Search by name or inventory"
                     className="pl-9"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
@@ -129,11 +132,11 @@ export default function ExperimentsPage() {
 
               <div className="flex gap-2">
                 {activeFilters.map((filter) => (
-                  <Badge 
-                    key={filter} 
-                    variant="outline" 
-                    className="rounded-full cursor-pointer hover:bg-accent"
-                    onClick={() => setActiveFilters(prev => 
+                  <Badge
+                    key={filter}
+                    variant="outline"
+                    className="rounded-full px-4 py-2 cursor-pointer hover:bg-accent"
+                    onClick={() => setActiveFilters(prev =>
                       prev.filter(f => f !== filter)
                     )}
                   >
@@ -144,17 +147,17 @@ export default function ExperimentsPage() {
 
               <Card>
                 <CardContent className="p-0">
-                  <div className="grid grid-cols-4 gap-4 p-4 border-b bg-muted/50">
+                  <div className="grid grid-cols-5 gap-4 p-4 border-b bg-muted/50">
                     <div>Experiment name</div>
                     <div>Inventory</div>
                     <div>Start date</div>
                     <div>Status</div>
                   </div>
-                  
+
                   {filteredExperiments.map((experiment, index) => (
-                    <div 
-                      key={index} 
-                      className="grid grid-cols-4 gap-4 p-4 border-b last:border-0 hover:bg-muted/50 cursor-pointer"
+                    <div
+                      key={index}
+                      className="grid grid-cols-5 gap-4 p-4 border-b last:border-0 hover:bg-muted/50 cursor-pointer"
                     >
                       <div className="flex items-center gap-2">
                         {experiment.name}
@@ -165,6 +168,7 @@ export default function ExperimentsPage() {
                       <div className="truncate">{experiment.inventory}</div>
                       <div>{experiment.startDate}</div>
                       <div>{experiment.status}</div>
+                      <ChevronRight />
                     </div>
                   ))}
                 </CardContent>

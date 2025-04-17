@@ -16,32 +16,23 @@ export default function PolicyCenterPage() {
         </aside>
         <main className="flex-1 p-8">
           <div className="space-y-6">
-            <div>
-              <h1 className="text-3xl font-bold mb-2">Policy Centre</h1>
-              <p className="text-muted-foreground">
-                Monitor and resolve policy issues
-                <Button variant="link" className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 px-1 h-auto">
-                  Learn more
-                  <ExternalLink className="ml-1 h-3 w-3" />
-                </Button>
-              </p>
-            </div>
+        
 
-            <Card>
+            <Card style={{border:'none'}}>
               <CardContent className="pt-6">
                 <div className="flex flex-col items-center justify-center text-center max-w-2xl mx-auto py-12">
                   <div className="mb-8">
-                    <div className="relative w-64 h-64">
-                      <div className="absolute top-0 right-0">
+                    <div className="relative w-[300px] h-[200px]">
+                      {/* <div className="absolute top-0 right-0">
                         <Sun className="h-12 w-12 text-yellow-400" />
                       </div>
                       <div className="absolute bottom-0 right-0">
                         <ThumbsUp className="h-10 w-10 text-blue-500" />
-                      </div>
+                      </div> */}
                       <img 
-                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='180' viewBox='0 0 240 180' fill='none'%3E%3Crect width='240' height='140' rx='8' fill='%23E3E8EF'/%3E%3Crect x='40' y='160' width='160' height='20' rx='4' fill='%23E3E8EF'/%3E%3C/svg%3E"
+                        src="/icons/svg/clean_account_image.svg"
                         alt="Illustration"
-                        className="w-full h-full"
+                        className="w-[330px] h-[200px]"
                       />
                     </div>
                   </div>
