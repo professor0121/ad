@@ -3,9 +3,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Header } from "@/components/dashboard/header"
 import { Sidebar } from "@/components/dashboard/sidebar"
-import { Input } from "@/components/ui/input" 
+import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Button } from "@/components/ui/button" 
+import { Button } from "@/components/ui/button"
 import { AlertTriangle, ExternalLink, Settings2, Search, Filter, MoreVertical, Ban, ChevronDown } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 
@@ -19,7 +19,7 @@ export default function AdReviewCentrePage() {
         </aside>
         <main className="flex-1 p-8">
           <div className="space-y-6">
-            <div>
+            {/* <div>
               <h1 className="text-3xl font-bold mb-2">Ad Review Centre</h1>
               <p className="text-muted-foreground">
                 Review and manage ads that appear on your sites
@@ -28,24 +28,26 @@ export default function AdReviewCentrePage() {
                   <ExternalLink className="ml-1 h-3 w-3" />
                 </Button>
               </p>
-            </div>
+            </div> */}
 
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <div className="relative">
-                  <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-                  <Input placeholder="Search ads" className="pl-8 w-[300px]" />
+            <div className="flex flex-col">
+              <div className="flex flex-wrap justify-between w-full gap-4">
+                <div className="relative w-[85%]">
+                  <Search className="absolute left-2.5 top-2.5 h-4" />
+                  <Input placeholder="Search ads" className="pl-8   " />
                 </div>
-                <Button variant="outline" className="gap-2">
-                  <Filter className="h-4 w-4" />
-                  Filters
-                </Button>
+                <div>
+                  <Button variant="outline" className="gap-2">
+                    <Filter className="h-4 w-4" />
+                    Search by Image
+                  </Button>
+                </div>
               </div>
-              <Button variant="outline" className="gap-2">
-                <Settings2 className="h-4 w-4" />
-                Review settings
-              </Button>
             </div>
+            <Button variant="outline" className="gap-2">
+              <Settings2 className="h-4 w-4" />
+              Review settings
+            </Button>
 
             <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
               <div className="flex items-center gap-2">
@@ -85,8 +87,8 @@ export default function AdReviewCentrePage() {
                         <Search className="h-8 w-8 text-muted-foreground" />
                       </div>
                       <div>
-                        <a href={`https://${ad.url}`} target="_blank" rel="noopener noreferrer" 
-                           className="text-sm text-blue-600 hover:underline truncate block">
+                        <a href={`https://${ad.url}`} target="_blank" rel="noopener noreferrer"
+                          className="text-sm text-blue-600 hover:underline truncate block">
                           {ad.url}
                         </a>
                         <p className="text-sm text-muted-foreground">{ad.impressions} impressions</p>
@@ -101,7 +103,7 @@ export default function AdReviewCentrePage() {
                 </Card>
               ))}
             </div>
-            
+
             <div className="flex items-center justify-between text-sm text-muted-foreground mt-4">
               <div className="flex items-center gap-2">
                 Show rows

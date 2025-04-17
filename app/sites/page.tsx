@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Header } from "@/components/dashboard/header"
 import { Sidebar } from "@/components/dashboard/sidebar"
 import { Button } from "@/components/ui/button"
-import { Search, BarChart2, Settings2, ChevronDown, Plus, HelpCircle } from "lucide-react"
+import { Search, BarChart2, Settings2, ChevronDown, Plus, HelpCircle, Delete } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 
 export default function SitesPage() {
@@ -21,10 +21,10 @@ export default function SitesPage() {
           <div className="grid gap-4">
             <Card style={{ border: 'none' }}>
               <CardHeader>
-                <div className="flex items-center justify-between">
+                <div className="flex justify-between">
 
                   <div>
-                    <CardTitle className="text-xl mb-2">Manage your sites</CardTitle>
+                    <CardTitle className="text-[1.325rem] leading-[1.7rem] font-[400] mb-2">Manage your sites</CardTitle>
                     <p className="text-sm text-muted-foreground">
                       Add sites that you want to monetise with AdSense.
                       <Button variant="link" className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 px-1 h-auto">
@@ -36,55 +36,54 @@ export default function SitesPage() {
                   <img src="/icons/svg/site_management.svg" alt="" />
                 </div>
                 <div className="flex items-center   mb-6">
-                  <Button>
+                  <Button style={{background:"#1B66C9"}}>
                     <Plus className="mr-2 h-4 w-4" />
                     New site
                   </Button>
                 </div>
               </CardHeader>
-              <CardContent>
-                <div className="flex items-center gap-2 mb-4">
-                  <Search className="h-4 w-4 text-muted-foreground" />
-                  <Input placeholder="Search" className="max-w-sm" />
+              <CardContent className="w-full">
+                <div className="flex w-full items-center px-[10px] py-[4px]   border">
+                  <Search className="h-4 w-4text-muted-foreground" />
+                  <Input placeholder="" className="w-full " style={{border:'none' }} />
                 </div>
 
-                <div className="flex gap-2 mb-4">
-                  <Badge variant="outline" className="rounded-full">Ready</Badge>
-                  <Badge variant="outline" className="rounded-full">Getting ready</Badge>
-                  <Badge variant="outline" className="rounded-full">Requires review</Badge>
-                  <Badge variant="outline" className="rounded-full">Needs attention</Badge>
+                <div className="flex gap-2 py-4 px-8 border">
+                  <Badge className="text-[15px] font-[400] px-4 py-1 bg-transparent text-[#191919]  ">Filter :</Badge>
+                  <Badge variant="outline" className="rounded-[8px] text-[15px] font-[400] px-4 py-1">Ready</Badge>
+                  <Badge variant="outline" className="rounded-[8px] text-[15px] font-[400] px-4 py-1">Getting ready</Badge>
+                  <Badge variant="outline" className="rounded-[8px] text-[15px] font-[400] px-4 py-1">Requires review</Badge>
+                  <Badge variant="outline" className="rounded-[8px] text-[15px] font-[400] px-4 py-1">Needs attention</Badge>
                 </div>
 
                 <div className="  border">
-                  <div className="grid grid-cols-4 gap-4 p-4 border-b bg-muted/50">
+                  <div className="grid grid-cols-6 gap-4 p-4 border-b bg-muted/50">
                     <div className="flex items-center gap-1">
                       Site URL
                       <ChevronDown className="h-4 w-4" />
                     </div>
                     <div>Approval status</div>
                     <div>Status details</div>
+                    <div>Ads.txt status</div>
                     <div>Last updated</div>
+                    <div> </div>
                     <div />
                   </div>
 
                   {[
-                    { url: "blogingco.com", status: "Ready", details: "-", lastUpdated: "7 Oct 2022" },
-                    { url: "lebely.com", status: "Ready", details: "-", lastUpdated: "17 Mar 2025" },
-                    { url: "youtube-playlist-length-calculator.onrender.com", status: "Ready", details: "-", lastUpdated: "13 Nov 2024" },
-                    { url: "youtubeplaylistlength.com", status: "Ready", details: "-", lastUpdated: "30 Sept 2024" }
+                    { url: "blogingco.com", status: "Ready", details: "-", txtStatus: "Authorized", lastUpdated: "7 Oct 2022" },
+                    { url: "lebely.com", status: "Ready", details: "-", txtStatus: "Authorized", lastUpdated: "17 Mar 2025" },
+                    { url: "youtube-playlist-length-calculator.onrender.com", status: "Ready", details: "-", txtStatus: "Authorized", lastUpdated: "13 Nov 2024" },
+                    { url: "youtubeplaylistlength.com", status: "Ready", details: "-", txtStatus: "Authorized", lastUpdated: "30 Sept 2024" }
                   ].map((site) => (
-                    <div key={site.url} className="grid grid-cols-4 gap-4 p-4 border-b last:border-0">
+                    <div key={site.url} className="grid grid-cols-6 gap-4 p-4 border-b last:border-0">
                       <div className="truncate text-blue-600">{site.url}</div>
                       <div><Badge variant="outline" className="bg-green-50">{site.status}</Badge></div>
                       <div>{site.details}</div>
+                      <div>{site.txtStatus}</div>
                       <div>{site.lastUpdated}</div>
-                      <div className="flex justify-end gap-2">
-                        <Button variant="ghost" size="icon">
-                          <BarChart2 className="h-4 w-4" />
-                        </Button>
-                        <Button variant="ghost" size="icon">
-                          <Settings2 className="h-4 w-4" />
-                        </Button>
+                      <div className="">
+                          <Button><Delete/></Button>
                       </div>
                     </div>
                   ))}

@@ -20,32 +20,37 @@ export default function PrivacyAndMessagingPage() {
         </aside>
         <main className="flex-1 p-8">
           <div className="space-y-6">
-            <div>
-              <h1 className="text-3xl font-bold mb-2">Privacy and messaging</h1>
-              <p className="text-muted-foreground">
-                Manage your privacy settings and explore new ways to monetise your site
-                <Button variant="link" className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 px-1 h-auto">
-                  Learn more
-                  <ExternalLink className="ml-1 h-3 w-3" />
-                </Button>
-              </p>
+            <div className="flex justify-between">
+              <div>
+                <h1 className="text-3xl font-400 mb-2">Privacy and messaging</h1>
+                <p className="text-muted-foreground">
+                  Manage your privacy settings and explore new ways to monetise your site<br></br>
+                  <Button variant="link" className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 px-1 h-auto">
+                    Learn more
+                    <ExternalLink className="ml-1 h-3 w-3" />
+                  </Button>
+                </p>
+              </div>
+              <img className=" w-[234px] h-[260px]" src="/images/homepage_education-1.png" alt="" />
             </div>
 
-            <Card>
-              <CardHeader>
-                <CardTitle>Consent management solutions</CardTitle>
+
+            <div>
+            <p className="text-[18px]">Consent management solutions</p >
                 <p className="text-muted-foreground mt-1.5">
                   Gather user consent and provide opt-out decisions for privacy regulations and manage your ad serving settings
                 </p>
-              </CardHeader>
+            </div>
+            <Card>
+            
               <CardContent className="grid gap-6 md:grid-cols-2">
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
                         <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
-                          <circle cx="12" cy="12" r="12" fill="#1565C0"/>
-                          <path d="M6 12L10 16L18 8" stroke="white" strokeWidth="2"/>
+                          <circle cx="12" cy="12" r="12" fill="#1565C0" />
+                          <path d="M6 12L10 16L18 8" stroke="white" strokeWidth="2" />
                         </svg>
                       </div>
                     </div>
@@ -74,8 +79,8 @@ export default function PrivacyAndMessagingPage() {
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center">
                         <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
-                          <circle cx="12" cy="12" r="12" fill="#B71C1C"/>
-                          <path d="M7 12H17M12 7V17" stroke="white" strokeWidth="2"/>
+                          <circle cx="12" cy="12" r="12" fill="#B71C1C" />
+                          <path d="M7 12H17M12 7V17" stroke="white" strokeWidth="2" />
                         </svg>
                       </div>
                     </div>
@@ -111,8 +116,8 @@ export default function PrivacyAndMessagingPage() {
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 rounded-full bg-orange-100 dark:bg-orange-900 flex items-center justify-center">
                         <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
-                          <circle cx="12" cy="12" r="12" fill="#EF6C00"/>
-                          <path d="M6 18L18 6M6 6L18 18" stroke="white" strokeWidth="2"/>
+                          <circle cx="12" cy="12" r="12" fill="#EF6C00" />
+                          <path d="M6 18L18 6M6 6L18 18" stroke="white" strokeWidth="2" />
                         </svg>
                       </div>
                     </div>
@@ -134,24 +139,14 @@ export default function PrivacyAndMessagingPage() {
               </Card>
 
               <Card>
-                <CardHeader>
-                  <CardTitle>Offerwall</CardTitle>
-                  <p className="text-muted-foreground mt-1.5">
-                    Monetize your site with user-initiated rewards and offers
-                  </p>
-                </CardHeader>
+             
                 <CardContent>
-                  <div className="flex items-center gap-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
-                        <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
-                          <circle cx="12" cy="12" r="12" fill="#6A1B9A"/>
-                          <path d="M12 7v10M17 12H7" stroke="white" strokeWidth="2"/>
-                          <path d="M12 7l5 5-5 5" stroke="white" strokeWidth="2"/>
-                        </svg>
-                      </div>
+                  <div className="flex items-center flex-col gap-4">
+                    <div className="flex flex-col">
+                       <img src="/icons/svg/firewall.svg" alt="" />
                     </div>
                     <div>
+                      <h3>Offerwall</h3>
                       <p className="text-sm text-muted-foreground">
                         Create engaging reward opportunities for users to earn while interacting with your content
                       </p>
